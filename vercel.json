@@ -1,10 +1,40 @@
 {
   "version": 2,
-  "rewrites": [
-	{
-	  "source": "/((?!favicon\\.ico|_next/|static/|images/|css/|js/).*)",
-	  "destination": "/api"
-	}
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "views/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/images/(.*)",
+      "dest": "/views/images/$1"
+    },
+    {
+      "src": "/css/(.*)",
+      "dest": "/views/css/$1"
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/views/js/$1"
+    },
+    {
+      "src": "/products",
+      "dest": "/server.js"
+    },
+    {
+      "src": "/products/(.*)",
+      "dest": "/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/server.js"
+    }
   ]
 }
 
