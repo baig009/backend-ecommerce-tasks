@@ -1,11 +1,13 @@
 import { Router } from 'express';
 const router = Router();
+import { Product } from '../Models/product.models.js';
 
 // Home route
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+    const productsfeatured =  await Product.find({featured: true});
     res.render('home', {
-        title: 'Home',
-        pageDescription: 'Welcome to our e-commerce store'
+        products: productsfeatured
+
     });
 }); 
 

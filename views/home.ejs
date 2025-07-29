@@ -170,9 +170,9 @@
         </button>
     </div>
 
-    <!-- Featured Products Section -->
-    <section class="container my-5">
-        <h2 class="text-center mb-4">Featured Products</h2>
+ <!-- Featured Products Section  -->
+     <section class="container my-5">
+        <h2 class="text-center mb-4"></h2>
         <div class="row g-4">
             <div class="col-sm-6 col-md-3">
                 <div class="card product-card">
@@ -181,7 +181,7 @@
                         <span class="badge bg-danger position-absolute top-0 start-0 m-3">-20%</span>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Premium Watch</h5>
+                        <h5 class="card-title"></h5>
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             <p class="mb-0">
                                 <strong class="text-primary">$299.99</strong>
@@ -261,6 +261,20 @@
             </div>
         </div>
     </section>
+
+      <div class="product-grid">
+    <% products.forEach(product => { %>
+      <div class="product">
+        <h2><%= product.name %></h2>
+        <p>Price: $<%= product.price %></p>
+        <a href="/products/<%= product._id %>">View Details</a>
+      </div>
+    <% }) %>
+  </div>
+
+    <!-- Featured Products Section End -->
+    
+    
 
     <!-- Categories Section -->
     <section class="bg-light py-5">
